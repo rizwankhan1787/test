@@ -8,7 +8,7 @@ resource "aws_vpc" "tf-vpc" {
 resource "aws_subnet" "tf-weba" {
   vpc_id = "${aws_vpc.tf-vpc.id}"
   cidr_block = "172.21.0.0/24"
-  availability_zone = "eu-west-1a"
+  availability_zone = "us-west-2a"
   map_public_ip_on_launch = true
   tags {
   Name = "tf-weba"
@@ -18,7 +18,7 @@ resource "aws_subnet" "tf-weba" {
 resource "aws_subnet" "tf-webb" {
   vpc_id = "${aws_vpc.tf-vpc.id}"
   cidr_block = "172.21.1.0/24"
-  availability_zone = "eu-west-1b"
+  availability_zone = "us-west-2b"
   map_public_ip_on_launch = true
   tags {
   Name = "tf-webb"

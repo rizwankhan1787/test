@@ -1,5 +1,11 @@
 #!/bin/bash
 yum install git -y;
-pip install ansible;
+yum install wget -y;
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm;
+yum install epel-release-latest-7.noarch.rpm -y; 
+yum install ansible -y;
 git clone https://github.com/arocki7/terraform-ansible.git /tmp/terraform-ansible;
-/usr/local/bin/ansible-playbook -i /tmp/terraform-ansible/ansible/hosts /tmp/terraform-ansible/ansible/web.yml &> /tmp/ansible.log;
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py";
+sudo python get-pip.py;
+sudo pip install awscli;
+/usr/bin/ansible-playbook -i /tmp/terraform-ansible/ansible/hosts /tmp/terraform-ansible/ansible/web.yml &> /tmp/ansible.log;
